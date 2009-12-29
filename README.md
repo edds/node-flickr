@@ -4,11 +4,11 @@ A very simple handler to take the pain out of flickr api calls in node.js
 
 ## Eaxmple usage:
 
-    var flickr = require('./flickr');
+    var Flickr = require('./flickr').Flickr;
     var sys = require('sys');
 
-    var f = new flickr.Flickr(api_key);
-    var photos = f.request('flickr.photosets.search', { "tags" : "cows,fluffy", "extras": "date_taken" });
+    var flickr = new Flickr(your_api_key);
+    var photos = flickr.photos.search({ "tags" : "cows,fluffy", "extras": "date_taken" });
     photos.addCallback(function(data){
       sys.p(data);
     });
@@ -16,3 +16,6 @@ A very simple handler to take the pain out of flickr api calls in node.js
       sys.puts('code: '+ code + " msg: " + msg);
     });
 
+## Todo:
+
+Currently won't sent authentication until method descriptions are updated for every api.
