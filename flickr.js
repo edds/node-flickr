@@ -3,10 +3,8 @@ var http = require('http'),
   sys = require('sys');
 
 
-var Flickr = function(api_key, user, pass){
+var Flickr = function(api_key){
   this.api_key = api_key;
-  this.username = user || '';
-  this.password = pass || '';
   var self = this;
   var api = {
     "activity" : {
@@ -242,8 +240,7 @@ Flickr.prototype.createRequest = function(url, auth){
    'User-Agent': 'node.js'
   };
   if(auth === true){
-    var auth_string = base64.encode(this.username + ':' + this.password);
-    headers.Authorization = "Basic " + auth_string;
+    // TODO: manage what happens for authenticated calls
   }
   var c = http.createClient(80, "api.flickr.com");
   var r = c.request('POST', url, headers);
