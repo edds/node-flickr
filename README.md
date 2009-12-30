@@ -2,7 +2,7 @@
 
 A very simple handler to take the pain out of flickr api calls in node.js
 
-## Eaxmple usage:
+## Example usage:
 
     var Flickr = require('./flickr').Flickr;
     var sys = require('sys');
